@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import cors from 'cors'
 import connectDB from './config/db.js'
 const app = express();
 
@@ -18,6 +19,7 @@ app.use('/api/appUsers', appUserRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
+app.use(cors())
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
